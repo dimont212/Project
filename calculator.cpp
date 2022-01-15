@@ -5,35 +5,38 @@ using namespace std;
 typedef long long int64;
 
 int main() {
-    setlocale(LC_ALL, "Russian"); //чтобы был русский текст, а не язык стола зачарования из minecraft
-    int nType, nNumbers, opType, outpType, theme;
-    char choose1, choose2;
-    int64 aInt, bInt, cInt, resInt;
-    double aFloat, bFloat, cFloat, resFloat; 
+    setlocale(LC_ALL, "Russian");                   //чтобы был русский текст, а не язык стола зачарования из minecraft
+    //Объявление переменных
+    short nType, nNumbers, opType, outpType, theme; //Объявление переменных для выборов вариантов
+    char choose1, choose2;                          //Объявление переменных для выбора выхода либо продолжения программы
+    int64 aInt, bInt, cInt, resInt;                 //Объявление переменных для целых чисел
+    long double aFloat, bFloat, cFloat, resFloat;   //Объявление переменных для дробоных чисел
+
+    //Сама программа
     do { //Выполняет один раз всю программу
         do { //Выполняет ввод вариантов один раз
             cout << "Какая тема?\n 1 - Тёмная\n 2 - Светлая\n 3 - Синяя\n 4 - Красная\n"; cin >> theme;
-            if (theme == 1) system("color 07");      //тёмная тема
-            else if (theme == 2) system("color 70"); //светлая тема
-            else if (theme == 3) system("color 17"); //синяя тема
-            else if (theme == 4) system("color 47"); //красная тема
+            if (theme == 1) system("color 07");      //Тёмная тема
+            else if (theme == 2) system("color 70"); //Светлая тема
+            else if (theme == 3) system("color 17"); //Синяя тема
+            else if (theme == 4) system("color 47"); //Красная тема
 
             cout << "Какой тип числа?\n" << "1 - Целое число\n" << "2 - Дробное число\n" << endl;;
-            cin >> nType; cout << endl; //ввод типа числа
+            cin >> nType; cout << endl; //Ввод типа числа
 
             cout << "Сколько чисел будет? (Максимальное количество - 3; 1 - операция будет с этим же числом): ";
-            cin >> nNumbers; cout << endl; //ввод количества чисел
+            cin >> nNumbers; cout << endl; //Ввод количества чисел
 
             cout << "Тип операции?\n" << "1 - Сложение\n" << "2 - Вычитание\n" << "3 - Умножение\n"
                 << "4 - Деление\n" << "5 - Возведение в степень (только если выбрано одно или два числа и оно целое)\n"
-                << endl; cin >> opType; cout << endl; //ввод типа операции
+                << endl; cin >> opType; cout << endl; //Ввод типа операции
 
             cout << "В какой системе счисления вывести?\n" << "1 - Десятичной\n" << "2 - Восьмеричной\n"
-                << "3 - Шестнадцатеричной\n" << endl; cin >> outpType; cout << endl; //ввод в какой системе счисления выводить результат
+                << "3 - Шестнадцатеричной\n" << endl; cin >> outpType; cout << endl; //Ввод в какой системе счисления выводить результат
 
             system("cls"); //очистка консоли чтобы не было лишнего мусора и выглядело красиво
 
-            //выводит какие варианты были выбраны
+            //Вывод, какие варианты были выбраны
             cout << "Выбраны следующие варианты:\n\n" << "Тема: ";
             switch (theme) {
             case 1:
@@ -123,10 +126,10 @@ int main() {
 
             cout << "\nЭто верно? y/n: "; cin >> choose1;
             system("cls");
-        } while (choose1 == 'n'); /* если y (то есть введённые данные верны), то программа продолжается,
+        } while (choose1 == 'n'); /* Если y (то есть введённые данные верны), то программа продолжается,
         если n (нет), то ввод начинается заново */
 
-        switch (nType) { //расчёты в зависимости от типа
+        switch (nType) { //Считает в зависимости от типа
         case 1: //если выбрано целое число
             switch (nNumbers) {
             case 1: //если число одно
@@ -318,7 +321,7 @@ int main() {
             }
             break;
         }
-        cout << endl << "Выйти? y/n: "; cin >> choose2; //если y, программа заканчивается, если n, то программа начинается заново
+        cout << endl << "Выйти? y/n: "; cin >> choose2; //Если y, программа заканчивается, если n, то программа начинается заново
         system("cls");
     }
     while (choose2 == 'n');
